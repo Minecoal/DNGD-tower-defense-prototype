@@ -6,25 +6,28 @@ public class BuildingButton : MonoBehaviour
 {
     [SerializeField] private BuildingData buildingData;
 
+    [SerializeField]  private Image buttonImage;
+
     private void Start()
     {
         BuildButtonManager.OnButtonPressed += UpdateButtonState;
+
+        buttonImage.sprite = buildingData.icon;
     }
 
     public void SelectBuilding()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-
-
         if (BuildManager.Instance.GetBuildingData() == buildingData)
         {
             BuildManager.Instance.SelectBuilding(null);
             BuildButtonManager.Instance.SetSelectedButton(null);
+            SideMenuManager.Instance.SetDescription(null, null);
         }
         else
         {
             BuildManager.Instance.SelectBuilding(buildingData);
             BuildButtonManager.Instance.SetSelectedButton(this);
+            SideMenuManager.Instance.SetDescription(buildingData.icon, buildingData.description);
         }
 
         BuildButtonManager.Instance.ButtonPressed();

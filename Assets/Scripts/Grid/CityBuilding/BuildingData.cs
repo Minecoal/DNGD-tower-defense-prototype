@@ -33,6 +33,11 @@ public class BuildingData : ScriptableObject
     public int radius = 1; // square
     public List<Vector2Int> costFootprint;
 
+    [Header("Desc")]
+    public string buildingName;
+    public string description;
+    public Sprite icon;
+
     private void OnValidate()
     {
         if (type == BuildingShapeType.Rectangular && size != _lastSize)

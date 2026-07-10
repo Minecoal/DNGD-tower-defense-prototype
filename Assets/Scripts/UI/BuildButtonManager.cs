@@ -16,9 +16,7 @@ public class BuildButtonManager : GenericSingleton<BuildButtonManager>
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        var inputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>();
-        if (inputModule != null)
-            inputModule.move = null;
+
     }
 
     // Update is called once per frame

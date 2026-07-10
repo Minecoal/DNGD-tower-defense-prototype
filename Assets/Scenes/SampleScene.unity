@@ -1260,6 +1260,10 @@ PrefabInstance:
       value: Building Button (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4984005984495868021, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
+      propertyPath: buttonImage
+      value: 
+      objectReference: {fileID: 1922824363}
+    - target: {fileID: 4984005984495868021, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
       propertyPath: buildingData
       value: 
       objectReference: {fileID: 11400000, guid: b30855684a9699b49be6b869d377cfbd, type: 2}
@@ -1354,6 +1358,10 @@ PrefabInstance:
     - target: {fileID: 6413470468642260691, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.3433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298793177409758305, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1918,8 +1926,10 @@ GameObject:
   - component: {fileID: 1221537826}
   - component: {fileID: 1221537828}
   - component: {fileID: 1221537827}
+  - component: {fileID: 1221537829}
+  - component: {fileID: 1221537830}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Side Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,6 +1998,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221537825}
   m_CullTransparentMesh: 1
+--- !u!95 &1221537829
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221537825}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eeacb912f240aab4faf84491dc255589, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1221537830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221537825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac667df074eb344dbf7597705477ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SideMenuManager
+  hideButton: {fileID: 1943063694}
+  descriptionImage: {fileID: 1752251493}
+  descriptionTxt: {fileID: 573036730}
 --- !u!224 &1317432851 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5146411760560829281, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
@@ -2751,11 +2798,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799107889}
   m_CullTransparentMesh: 1
+--- !u!114 &1847110642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2083385926341934660, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
+  m_PrefabInstance: {fileID: 6265711668980167661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!224 &1856496586 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5146411760560829281, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
   m_PrefabInstance: {fileID: 6265711668980167661}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1922824363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2083385926341934660, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
+  m_PrefabInstance: {fileID: 703082784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1940337498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,7 +2958,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1943063697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1221537830}
+        m_TargetAssemblyTypeName: SideMenuManager, Assembly-CSharp
+        m_MethodName: HideButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1943063697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3257,6 +3338,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building Button
       objectReference: {fileID: 0}
+    - target: {fileID: 4984005984495868021, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
+      propertyPath: buttonImage
+      value: 
+      objectReference: {fileID: 1847110642}
     - target: {fileID: 5146411760560829281, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3336,26 +3421,6 @@ PrefabInstance:
     - target: {fileID: 5146411760560829281, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413470468642260691, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
-      propertyPath: m_Transition
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413470468642260691, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413470468642260691, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0.3886792
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413470468642260691, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.g
-      value: 0.3886792
-      objectReference: {fileID: 0}
-    - target: {fileID: 6413470468642260691, guid: c0b610a760a10594aa39f66b24aeb11f, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.3886792
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
